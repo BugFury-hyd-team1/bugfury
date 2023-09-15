@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Project</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Project</h1>
+        <form id="new-project-form">
+            <div class="form-group">
+                <label for="project-name">Project Name:</label>
+                <input type="text" id="project-name" name="project-name" required>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="team-members">Assign Team Members:</label>
+                <ul id="team-members">
+                    <li><input type="checkbox" id="developer1" name="developers[]" value="developer1"> Developer 1</li>
+                    <li><input type="checkbox" id="developer2" name="developers[]" value="developer2"> Developer 2</li>
+                    <li><input type="checkbox" id="tester1" name="testers[]" value="tester1"> Tester 1</li>
+                    <li><input type="checkbox" id="tester2" name="testers[]" value="tester2"> Tester 2</li>
+                    
+                </ul>
+<a href="projectdetails1.html">
+    <button>Create Project</button>
+  </a> 
+            </div>
+            
+             
+
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const newProjectForm = document.getElementById("new-project-form");
+
+            newProjectForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                
+               <!-- const startDate = new Date(document.getElementById("start-date").value);
+                const currentDate = new Date();
+                currentDate.setDate(currentDate.getDate() + 2);
+
+                if (startDate <= currentDate) {
+                    alert("Start date should be at least 2 days later than the current date.");
+                    return;
+                }
+
+else {
+            startDateError.textContent = "";
+        }-->
+
+
+                const projectId = generateUniqueId();
+                const projectData = {
+                    projectId: projectId,
+                    projectName: document.getElementById("project-name").value,
+                    startDate: document.getElementById("start-date").value,
+                    description: document.getElementById("description").value,
+                    developers: getSelectedCheckboxes("developers[]"),
+                    testers: getSelectedCheckboxes("testers[]"),
+                    projectStatus: "In Progress"
+                };
+
+               
+                console.log("Project Data:", projectData);
+                alert("Project created successfully!");
+            });
+
+           
+            function generateUniqueId() {
+                return "PROJECT-" + Math.floor(Math.random() * 10000);
+            }
+
+         
+            function getSelectedCheckboxes(checkboxName) {
+                const checkboxes = document.getElementsByName(checkboxName);
+                const selectedValues = [];
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        selectedValues.push(checkbox.value);
+                    }
+                });
+                return selectedValues;
+            }
+        });
+    </script>
+
+
+</body>
+</html>

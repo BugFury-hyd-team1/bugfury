@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Details</h1>
+
+       
+        <section>
+            <h2>Project Information</h2>
+            <p><strong>Project Name:</strong> Project 2</p>
+            <p><strong>Start Date:</strong> September 1, 2023</p>
+            <p><strong>Project Manager:</strong> John Doe</p>
+            <h2>Team Members</h2>
+            <ul>
+                <li><strong>Team Member 1:</strong> Developer</li>
+                <li><strong>Team Member 2:</strong> Tester</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Bug List</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bug ID</th>
+                        <th>Title</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                        <th>Assigned To</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BUG-001</td>
+                        <td>Bug 1</td>
+                        <td>High</td>
+                        <td>Open</td>
+                        <td>Developer A</td>
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Bug Management</h2>
+            <form id="bug-management-form">
+                <div class="form-group">
+                    <label for="bug-id">Bug ID:</label>
+                    <input type="text" id="bug-id" name="bug-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="assign-developer">Assign Bug To Developer:</label>
+                    <select id="assign-developer" name="assign-developer" required>
+                        <option value="developer1">Developer 1</option>
+                        <option value="developer2">Developer 2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="close-bug">Close Bug:</label>
+                    <input type="checkbox" id="close-bug" name="close-bug">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        function assignBug(bugId) {
+            console.log(`Bug ${bugId} assigned to Developer`);
+        }
+
+        function closeBug(bugId) {
+            console.log(`Bug ${bugId} marked as closed`);
+        }
+    </script>
+</body>
+</html>
